@@ -7,35 +7,37 @@ concept Arithmetic = std::is_arithmetic_v<T>;
 
 template<Arithmetic Scalar>
 class quaternion {
+  Scalar real, i, j, k;
 public:
-  constexpr quaternion(const Scalar& real ={}, const Scalar& i = {}, const Scalar& j = {}, const Scalar& k = {});
+    constexpr quaternion(const Scalar& real ={}, const Scalar& i = {}, const Scalar& j = {}, const Scalar& k = {}):
+    real{real}, i{i}, j{j}, k{k} {};
   constexpr quaternion( const quaternion& other ) = default;
 
-  constexpr Scalar real() const {
+  constexpr Scalar accessReal() const {
     return real;
   }
-  constexpr void real(Scalar z) {
+  constexpr void accessReal(Scalar z) {
     real = z;
   }
 
-  constexpr Scalar i() const {
+  constexpr Scalar accessI() const {
     return i;
   }
-  constexpr void i(Scalar z) {
+  constexpr void accessI(Scalar z) {
     i = z;
   }
 
-  constexpr Scalar j() const {
+  constexpr Scalar accessJ() const {
     return j;
   }
-  constexpr void j(Scalar z) {
+  constexpr void accessJ(Scalar z) {
     j = z;
   }
 
-  constexpr Scalar k() const {
+  constexpr Scalar accessK() const {
     return k;
   }
-  constexpr void k(Scalar z) {
+  constexpr void accessK(Scalar z) {
     k = z;
   }
 
@@ -69,6 +71,6 @@ public:
     k = real * z.k + i * z.j - j * z.i + k * z.real;
     return *this;
   }
-  constexpr quaternion& operator/=(const quaternion& z);
+  //constexpr quaternion& operator/=(const quaternion& z);
 
 };
