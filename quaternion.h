@@ -75,45 +75,45 @@ public:
 
 };
 
-template< class T >
-constexpr quaternion<T> operator+(const quaternion<T>& a, const quaternion<T>& b) {
+template<Arithmetic Scalar>
+constexpr quaternion<Scalar> operator+(const quaternion<Scalar>& a, const quaternion<Scalar>& b) {
   return a+=b;
 }
 
-template< class T >
-constexpr quaternion<T> operator-(const quaternion<T>& a, const quaternion<T>& b) {
+template<Arithmetic Scalar>
+constexpr quaternion<Scalar> operator-(const quaternion<Scalar>& a, const quaternion<Scalar>& b) {
   return a-=b;
 }
 
-template< class T >
-constexpr quaternion<T> operator*(const quaternion<T>& a, const quaternion<T>& b) {
+template<Arithmetic Scalar>
+constexpr quaternion<Scalar> operator*(const quaternion<Scalar>& a, const quaternion<Scalar>& b) {
   return a*=b;
 }
-
-//constexpr quaternion<T> operator/(const quaternion<T>& a, const quaternion<T>& b) {
+//template<Arithmetic Scalar>
+//constexpr quaternion<Scalar> operator/(const quaternion<Scalar>& a, const quaternion<Scalar>& b) {
 //  return a/=b;
 //}
 
-template< class T >
-constexpr bool operator==(const quaternion<T>& a, const quaternion<T>& b) {
+template<Arithmetic Scalar>
+constexpr bool operator==(const quaternion<Scalar>& a, const quaternion<Scalar>& b) {
   return a.accessReal() == b.accessReal() &&
     a.accessI() == b.accessI() &&
     a.accessJ() == b.accessJ() &&
     a.accessK() == b.accessK();
 }
 
-template< class T >
-constexpr bool operator!=(const quaternion<T>& a, const quaternion<T>& b) {
+template<Arithmetic Scalar>
+constexpr bool operator!=(const quaternion<Scalar>& a, const quaternion<Scalar>& b) {
   return !(a==b);
 }
 
-template<class T>
-constexpr quaternion<T> conjugate(const quaternion<T>& x) {
+template<Arithmetic Scalar>
+constexpr quaternion<Scalar> conjugate(const quaternion<Scalar>& x) {
   return {x.accessReal(), x.accessI() * -1, x.accessJ() * -1, x.accessK() * -1};
 }
 
-//template< class T>
-//constexpr T norm(const quaternion<T>& x) {
+//template<Arithmetic Scalar>
+//constexpr Scalar norm(const quaternion<Scalar>& x) {
 
 
 //}
