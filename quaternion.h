@@ -74,3 +74,35 @@ public:
   //constexpr quaternion& operator/=(const quaternion& z);
 
 };
+
+template< class T >
+constexpr quaternion<T> operator+(const quaternion<T>& a, const quaternion<T>& b) {
+  return a+=b;
+}
+
+template< class T >
+constexpr quaternion<T> operator-(const quaternion<T>& a, const quaternion<T>& b) {
+  return a-=b;
+}
+
+template< class T >
+constexpr quaternion<T> operator*(const quaternion<T>& a, const quaternion<T>& b) {
+  return a*=b;
+}
+
+//constexpr quaternion<T> operator/(const quaternion<T>& a, const quaternion<T>& b) {
+//  return a/=b;
+//}
+
+template< class T >
+constexpr bool operator==(const quaternion<T>& a, const quaternion<T>& b) {
+  return a.accessReal() == b.accessReal() &&
+    a.accessI() == b.accessI() &&
+    a.accessJ() == b.accessJ() &&
+    a.accessK() == b.accessK();
+}
+
+template< class T >
+constexpr bool operator+(const quaternion<T>& a, const quaternion<T>& b) {
+  return !(a==b);
+}
