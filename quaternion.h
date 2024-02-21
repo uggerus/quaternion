@@ -103,6 +103,17 @@ constexpr bool operator==(const quaternion<T>& a, const quaternion<T>& b) {
 }
 
 template< class T >
-constexpr bool operator+(const quaternion<T>& a, const quaternion<T>& b) {
+constexpr bool operator!=(const quaternion<T>& a, const quaternion<T>& b) {
   return !(a==b);
 }
+
+template<class T>
+constexpr quaternion<T> conjugate(const quaternion<T>& x) {
+  return {x.accessReal(), x.accessI() * -1, x.accessJ() * -1, x.accessK() * -1};
+}
+
+//template< class T>
+//constexpr T norm(const quaternion<T>& x) {
+
+
+//}
